@@ -89,23 +89,11 @@ void add_member() {
             close();
         }
 
-        fseek(fp_records, 0, SEEK_SET);
         char name[20];
         printf("Enter the name of the member you want to remove from the society list: ");
         scanf("%s", name);
 
-        //Checks if there is a member with that name
-        bool test = false;
-        while (fscanf(fp_records, "%s %s %s %d/%d/%d %s %s %d", check.name, check.phone_number, check.status,
-                      &check.date_of_birth.day, &check.date_of_birth.month, &check.date_of_birth.year,
-                      check.hometown, check.course, &check.year_of_education) != EOF) {
-            printf("%s\n", check.name);
-            if (strcmp(check.name, name) == 0) {
-                test = true;
-            }
-        }
-
-        if (test == false) {
+        if (!check_name(fp_records, name)) {
             printf("There is no member with such name\n");
             menu_or_exit();
             return;
@@ -189,8 +177,24 @@ void add_member() {
         if (number_of_members == 0) {
             check = false;
         }
+        fseek(fp, 0, SEEK_SET);
         return check;
     }
+
+    //Checks if in the database there is a person with the given name
+    bool check_name(FILE* fp, char* name){
+        bool result = false;
+        while (fscanf(fp, "%s %s %s %d/%d/%d %s %s %d", check.name, check.phone_number, check.status,
+                      &check.date_of_birth.day, &check.date_of_birth.month, &check.date_of_birth.year,
+                      check.hometown, check.course, &check.year_of_education) != EOF) {
+            printf("%s\n", check.name);
+            if (strcmp(check.name, name) == 0) {
+                result = true;
+            }
+        }
+        fseek(fp, 0, SEEK_SET);
+        return result;
+}
 
     void menu_or_exit() {
         printf("\033[2J");

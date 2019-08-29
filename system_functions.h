@@ -23,6 +23,7 @@ void delete_record();
 void modify_record();
 void menu();
 bool check_for_members(FILE* fp);
+bool check_name(FILE* fp, char* name);
 void menu_or_exit();
 void close();
 int fordelay(int delay);
