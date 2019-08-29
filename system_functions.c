@@ -163,6 +163,7 @@ void modify_record() {
 }
 
 void modify_phone_number(FILE *fp_records, FILE *new_records, char *name) {
+    printf("\033[2J");
     char new_phone_number[20];
     printf("Enter the new phone number: ");
     scanf("%s",new_phone_number);
@@ -185,6 +186,7 @@ void modify_phone_number(FILE *fp_records, FILE *new_records, char *name) {
 }
 
 void modify_status(FILE *fp_records, FILE *new_records, char *name) {
+    printf("\033[2J");
     char new_status[20];
     printf("Enter the new membership status: ");
     scanf("%s",new_status);
@@ -207,6 +209,7 @@ void modify_status(FILE *fp_records, FILE *new_records, char *name) {
 }
 
 void modify_course(FILE *fp_records, FILE *new_records, char *name) {
+    printf("\033[2J");
     char new_course[20];
     printf("Enter the new membership status: ");
     scanf("%s",new_course);
@@ -229,6 +232,7 @@ void modify_course(FILE *fp_records, FILE *new_records, char *name) {
 }
 
 void modify_year_of_education(FILE *fp_records, FILE *new_records, char *name) {
+    printf("\033[2J");
     int new_year_of_education;
     printf("Enter the new year of education: ");
     scanf("%d",&new_year_of_education);
@@ -252,6 +256,7 @@ void modify_year_of_education(FILE *fp_records, FILE *new_records, char *name) {
 
 
 void menu() {
+    printf("\033[2J");
     invalid_command:
     printf("#####Bulgarian Society Imperial college London#####\n");
     printf("[1]Add a new member\n");
