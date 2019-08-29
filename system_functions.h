@@ -24,7 +24,7 @@ void modify_record();
 void modify_phone_number(FILE* fp_records, FILE* new_records, char* name);
 void modify_status(FILE* fp_records, FILE* new_records, char* name);
 void modify_course(FILE* fp_records, FILE* new_records, char* name);
-void modyfy_year_of_education(FILE* fp_records, FILE* new_records, char* name);
+void modify_year_of_education(FILE* fp_records, FILE* new_records, char* name);
 void menu();
 void check_for_members(FILE* fp);
 void check_name(FILE* fp, char* name);

@@ -55,7 +55,6 @@ void list_records() {
         perror("No input file");
         exit(EXIT_FAILURE);
     }
-
     check_for_members(fp);
 
     while (fscanf(fp, "%s %s %s %d/%d/%d %s %s %d", list.name, list.phone_number, list.status,
@@ -65,6 +64,7 @@ void list_records() {
                 list.date_of_birth.day, list.date_of_birth.month, list.date_of_birth.year,
                 list.hometown, list.course, list.year_of_education);
     }
+    fclose(fp);
     menu_or_exit();
 }
 
@@ -114,9 +114,9 @@ void modify_record() {
         perror("No records.dat file");
         exit(EXIT_FAILURE);
     }
-    FILE *new_records = fopen("new_records.dat", "r");
+    FILE *new_records = fopen("new_records.dat", "w");
     if (new_records == NULL) {
-        perror("No records.dat file");
+        perror("No new_records.dat file");
         exit(EXIT_FAILURE);
     }
 
@@ -139,16 +139,21 @@ void modify_record() {
     switch (choice) {
         case 1:
             modify_phone_number(fp_records, new_records, name);
+            break;
         case 2:
             modify_status(fp_records, new_records, name);
+            break;
         case 3:
             modify_course(fp_records, new_records, name);
+            break;
         case 4:
-            modyfy_year_of_education(fp_records, new_records, name);
+            modify_year_of_education(fp_records, new_records, name);
+            break;
         case 5:
             fclose(fp_records);
             fclose(new_records);
             menu_or_exit();
+            break;
         default:
             printf("Invalid! Please try again!\n");
             fordelay(100000);
@@ -171,11 +176,11 @@ void modify_phone_number(FILE *fp_records, FILE *new_records, char *name) {
                 modify.date_of_birth.day, modify.date_of_birth.month, modify.date_of_birth.year,
                 modify.hometown, modify.course, modify.year_of_education);
     }
-    fclose(fp_records);
-    fclose(fp_records);
     remove("records.dat");
     rename("new_records.dat", "records.dat");
     printf("Phone number successfully modified!\n");
+    fclose(fp_records);
+    fclose(new_records);
     menu_or_exit();
 }
 
@@ -225,8 +230,8 @@ void modify_course(FILE *fp_records, FILE *new_records, char *name) {
 
 void modify_year_of_education(FILE *fp_records, FILE *new_records, char *name) {
     int new_year_of_education;
-    printf("Enter the new membership status: ");
-    scanf("%s",new_year_of_education);
+    printf("Enter the new year of education: ");
+    scanf("%d",&new_year_of_education);
     while(fscanf(fp_records, "%s %s %s %d/%d/%d %s %s %d", modify.name, modify.phone_number, modify.status,
                  &modify.date_of_birth.day, &modify.date_of_birth.month, &modify.date_of_birth.year,
                  modify.hometown, modify.course, &modify.year_of_education) != EOF){
@@ -259,7 +264,6 @@ void menu() {
     scanf("%d", &choice);
 
     switch (choice) {
-        case 0:
         case 1:
             add_member();
             break;
