@@ -101,10 +101,10 @@ void delete_record() {
 
     fclose(fp_records);
     fclose(fp_records);
-
     remove("records.dat");
     rename("new_records.dat", "records.dat");
-    printf("Memeber successfully removed!\n");
+    printf("Member successfully removed!\n");
+    menu_or_exit();
 }
 
 void modify_record() {
@@ -114,8 +114,8 @@ void modify_record() {
         perror("No records.dat file");
         exit(EXIT_FAILURE);
     }
-    FILE *new_records = fopen("records.dat", "r");
-    if (fp_records == NULL) {
+    FILE *new_records = fopen("new_records.dat", "r");
+    if (new_records == NULL) {
         perror("No records.dat file");
         exit(EXIT_FAILURE);
     }
@@ -158,19 +158,91 @@ void modify_record() {
 }
 
 void modify_phone_number(FILE *fp_records, FILE *new_records, char *name) {
-
+    char new_phone_number[20];
+    printf("Enter the new phone number: ");
+    scanf("%s",new_phone_number);
+    while(fscanf(fp_records, "%s %s %s %d/%d/%d %s %s %d", modify.name, modify.phone_number, modify.status,
+                 &modify.date_of_birth.day, &modify.date_of_birth.month, &modify.date_of_birth.year,
+                 modify.hometown, modify.course, &modify.year_of_education) != EOF){
+        if(strcmp(name, modify.name) == 0){
+            strcpy(modify.phone_number, new_phone_number);
+        }
+        fprintf(new_records, "%s %s %s %d/%d/%d %s %s %d\n", modify.name, modify.phone_number, modify.status,
+                modify.date_of_birth.day, modify.date_of_birth.month, modify.date_of_birth.year,
+                modify.hometown, modify.course, modify.year_of_education);
+    }
+    fclose(fp_records);
+    fclose(fp_records);
+    remove("records.dat");
+    rename("new_records.dat", "records.dat");
+    printf("Phone number successfully modified!\n");
+    menu_or_exit();
 }
 
 void modify_status(FILE *fp_records, FILE *new_records, char *name) {
-
+    char new_status[20];
+    printf("Enter the new membership status: ");
+    scanf("%s",new_status);
+    while(fscanf(fp_records, "%s %s %s %d/%d/%d %s %s %d", modify.name, modify.phone_number, modify.status,
+                 &modify.date_of_birth.day, &modify.date_of_birth.month, &modify.date_of_birth.year,
+                 modify.hometown, modify.course, &modify.year_of_education) != EOF){
+        if(strcmp(name, modify.name) == 0){
+            strcpy(modify.status, new_status);
+        }
+        fprintf(new_records, "%s %s %s %d/%d/%d %s %s %d\n", modify.name, modify.phone_number, modify.status,
+                modify.date_of_birth.day, modify.date_of_birth.month, modify.date_of_birth.year,
+                modify.hometown, modify.course, modify.year_of_education);
+    }
+    fclose(fp_records);
+    fclose(fp_records);
+    remove("records.dat");
+    rename("new_records.dat", "records.dat");
+    printf("Status successfully modified!\n");
+    menu_or_exit();
 }
 
 void modify_course(FILE *fp_records, FILE *new_records, char *name) {
-
+    char new_course[20];
+    printf("Enter the new membership status: ");
+    scanf("%s",new_course);
+    while(fscanf(fp_records, "%s %s %s %d/%d/%d %s %s %d", modify.name, modify.phone_number, modify.status,
+                 &modify.date_of_birth.day, &modify.date_of_birth.month, &modify.date_of_birth.year,
+                 modify.hometown, modify.course, &modify.year_of_education) != EOF){
+        if(strcmp(name, modify.name) == 0){
+            strcpy(modify.course, new_course);
+        }
+        fprintf(new_records, "%s %s %s %d/%d/%d %s %s %d\n", modify.name, modify.phone_number, modify.status,
+                modify.date_of_birth.day, modify.date_of_birth.month, modify.date_of_birth.year,
+                modify.hometown, modify.course, modify.year_of_education);
+    }
+    fclose(fp_records);
+    fclose(fp_records);
+    remove("records.dat");
+    rename("new_records.dat", "records.dat");
+    printf("Course successfully modified!\n");
+    menu_or_exit();
 }
 
 void modify_year_of_education(FILE *fp_records, FILE *new_records, char *name) {
-
+    int new_year_of_education;
+    printf("Enter the new membership status: ");
+    scanf("%s",new_year_of_education);
+    while(fscanf(fp_records, "%s %s %s %d/%d/%d %s %s %d", modify.name, modify.phone_number, modify.status,
+                 &modify.date_of_birth.day, &modify.date_of_birth.month, &modify.date_of_birth.year,
+                 modify.hometown, modify.course, &modify.year_of_education) != EOF){
+        if(strcmp(name, modify.name) == 0){
+            modify.year_of_education = new_year_of_education;
+        }
+        fprintf(new_records, "%s %s %s %d/%d/%d %s %s %d\n", modify.name, modify.phone_number, modify.status,
+                modify.date_of_birth.day, modify.date_of_birth.month, modify.date_of_birth.year,
+                modify.hometown, modify.course, modify.year_of_education);
+    }
+    fclose(fp_records);
+    fclose(fp_records);
+    remove("records.dat");
+    rename("new_records.dat", "records.dat");
+    printf("Year of education successfully modified!\n");
+    menu_or_exit();
 }
 
 

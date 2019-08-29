@@ -15,7 +15,7 @@ struct Member{
     char hometown[20];
     char course[20];
     int year_of_education;
-} add, check, list, delete;
+} add, check, list, delete, modify;
 
 void add_member();
 void list_records();
