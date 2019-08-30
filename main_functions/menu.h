@@ -1,0 +1,4 @@
+#ifndef BGSOCMANAGEMENTSYSTEM_MENU_H
+#define BGSOCMANAGEMENTSYSTEM_MENU_H
+void menu();
+#endif

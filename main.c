@@ -2,7 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <curses.h>
-#include "system_functions.h"
+#include "main_functions/add_member.h"
+#include "main_functions/delete_record.h"
+#include "main_functions/list_records.h"
+#include "main_functions/modify_record.h"
+#include "main_functions/menu.h"
+#include "helper_functions.h"
 
 int main() {
     char password[20] = "1";
@@ -20,7 +25,7 @@ int main() {
     } else {
         printf("Incorrect password!\n");
         invalid:
-        printf("Enter 1 to try againg or 0 to exit: ");
+        printf("Enter 1 to try again or 0 to exit: ");
         scanf("%d", &choice);
         if(choice == 1){
             fordelay(100000);

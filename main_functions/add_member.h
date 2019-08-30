@@ -1,0 +1,4 @@
+#ifndef BGSOCMANAGEMENTSYSTEM_ADD_MEMBER_H
+#define BGSOCMANAGEMENTSYSTEM_ADD_MEMBER_H
+void add_member();
+#endif
