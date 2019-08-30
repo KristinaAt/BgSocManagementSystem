@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <curses.h>
-#include "helper_functions.h"
-#include <stdbool.h>
+#include "../helper_functions.h"
 #include "list_records.h"
 
 void list_records() {

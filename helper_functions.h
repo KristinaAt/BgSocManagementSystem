@@ -30,5 +30,5 @@ void check_for_members(FILE* fp);
 void check_name(FILE* fp, char* name);
 void menu_or_exit();
 void close();
-int fordelay(int delay);
+int delay(int delay);
 #endif

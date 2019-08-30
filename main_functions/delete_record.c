@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <curses.h>
-#include "helper_functions.h"
-#include <stdbool.h>
+#include "../helper_functions.h"
 #include "delete_record.h"
 
 void delete_record() {

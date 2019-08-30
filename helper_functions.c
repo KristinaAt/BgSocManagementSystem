@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <curses.h>
-#include "helper_functions.h"
 #include <stdbool.h>
+#include "helper_functions.h"
 #include "menu.h"
 
 //Returns true if the society has members
@@ -52,16 +51,16 @@ void menu_or_exit() {
     printf("Enter 1 to go to menu or 0 to exit: ");
     scanf("%d", &choice);
     if (choice == 1) {
-        fordelay(100000);
+        delay(100000);
         printf("\033[2J");
         menu();
     } else if (choice == 0) {
-        fordelay(100000);
+        delay(100000);
         printf("\033[2J");
         close();
     } else {
         printf("Invalid!\n");
-        fordelay(100000);
+        delay(100000);
         printf("\033[2J");
         goto invalid;
     }
@@ -71,13 +70,13 @@ void close() {
     printf("\033[2J");
     printf("Closing");
     for (int i = 0; i < 3; ++i) {
-        fordelay(1000000);
+        delay(1000000);
         printf(". ");
     }
     printf("\033[2J");
 }
 
-int fordelay(int delay) {
+int delay(int delay) {
     int k;
     for (int i = 0; i < delay; i++) {
         k = i;

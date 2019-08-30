@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <curses.h>
-#include "helper_functions.h"
-#include <stdbool.h>
+#include "../helper_functions.h"
 #include "menu.h"
 
 void menu() {
@@ -37,7 +35,7 @@ void menu() {
             break;
         default:
             printf("Invalid! Please try again!\n");
-            fordelay(100000);
+            delay(100000);
             printf("\033[2J");
             goto invalid_command;
 

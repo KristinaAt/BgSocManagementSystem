@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <curses.h>
-#include "helper_functions.h"
-#include <stdbool.h>
+#include "../helper_functions.h"
 #include "add_member.h"
 
 void add_member() {

@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <curses.h>
-#include "helper_functions.h"
-#include <stdbool.h>
+#include "../helper_functions.h"
 #include "modify_record.h"
 
 void modify_record() {
@@ -55,7 +53,7 @@ void modify_record() {
             break;
         default:
             printf("Invalid! Please try again!\n");
-            fordelay(100000);
+            delay(100000);
             printf("\033[2J");
             menu_or_exit();
     }

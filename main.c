@@ -10,7 +10,7 @@
 #include "helper_functions.h"
 
 int main() {
-    char password[20] = "1";
+    char password[20] = "99";
     char pass[20];
     int choice;
 
@@ -19,7 +19,7 @@ int main() {
     scanf("%s", pass);
     if(strcmp(pass, password) == 0){
         printf("Your password is correct!\n");
-        fordelay(1000000);
+        delay(1000000);
         printf("\033[2J");
         menu();
     } else {
@@ -28,16 +28,16 @@ int main() {
         printf("Enter 1 to try again or 0 to exit: ");
         scanf("%d", &choice);
         if(choice == 1){
-            fordelay(100000);
+            delay(100000);
             printf("\033[2J");
             goto try_login;
         } else if(choice == 0){
-            fordelay(100000);
+            delay(100000);
             printf("\033[2J");
             close();
         } else {
             printf("Invalid!\n");
-            fordelay(100000);
+            delay(100000);
             printf("\033[2J");
             goto invalid;
         }
