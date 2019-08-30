@@ -13,7 +13,7 @@ int main() {
     printf("Enter the password: ");
     scanf("%s", pass);
     if(strcmp(pass, password) == 0){
-        printf("Your password is correct!");
+        printf("Your password is correct!\n");
         fordelay(1000000);
         printf("\033[2J");
         menu();

@@ -335,7 +335,6 @@ void check_name(FILE *fp, char *name) {
 }
 
 void menu_or_exit() {
-    printf("\033[2J");
     int choice;
     invalid:
     printf("Enter 1 to go to menu or 0 to exit: ");
